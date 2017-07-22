@@ -47,7 +47,7 @@ public class AvionEntity extends Thread{
         try {
             socketDeConnection = socketDeCommunication.accept();
         } catch (IOException ex) {
-            System.out.println(Arrays.toString(ex.getStackTrace()));
+            //System.out.println(Arrays.toString(ex.getStackTrace()));
             return false;
         }
         // fonction à implémenter qui permet d'entrer en communication via TCP
@@ -73,7 +73,7 @@ public class AvionEntity extends Thread{
             DataOutputStream outToClient = new DataOutputStream(socketDeConnection.getOutputStream());
             outToClient.writeUTF(get_donnees());
         } catch (IOException ex) {
-            System.out.println("Error in send line 78");
+           // System.out.println("Error in send line 78");
         }
         // fonction à implémenter qui envoie l'ensemble des caractéristiques
         // courantes de l'avion au gestionnaire de vols
@@ -106,7 +106,7 @@ public class AvionEntity extends Thread{
         // formée de 2 lettres puis 3 chiffres
         numero_vol[0] = rndChar();
         numero_vol[1] = rndChar();
-        System.out.println(numero_vol[2] + "%03d" + (getRandomNumber() % 999) + 1);
+       // System.out.println(numero_vol[2] + "%03d" + (getRandomNumber() % 999) + 1);
         numero_vol[5] = 0;
     }
 // modifie la valeur de l'avion avec la valeur pass�e en param�tre
@@ -202,7 +202,7 @@ public class AvionEntity extends Thread{
                 envoyer_caracteristiques();
                 fermer_communication();
             } catch (InterruptedException ex) {
-                System.out.println("InterruptedException line 207");
+             //   System.out.println("InterruptedException line 207");
 
             }
         }
